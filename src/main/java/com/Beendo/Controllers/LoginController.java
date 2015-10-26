@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.Beendo.Constants.*;
 import com.Beendo.Entities.User;
 //import com.Beendo.HibernateUtils.HibernateUtil;
-
+ 
 @Controller
 public class LoginController {
 
