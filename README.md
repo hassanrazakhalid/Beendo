@@ -1,2 +1,0 @@
-# Beendo
-This is Beendo
