@@ -5,13 +5,25 @@
 <body>
 
 <div class="container">
-  <h2>Practices Info</h2>           
+  <h2>Practices Info</h2>   
+  
+  <div>
+  	<button type="button" class="btn btn-success">Add Physician</button>
+  </div>
+  
+  <div class="row">
+  	<div class="span9" />
+  </div>
+                 
   <table class="table">
     <thead>
       <tr>
         <th>Firstname</th>
         <th>Lastname</th>
         <th>Email</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -19,19 +31,29 @@
         <td>John</td>
         <td>Doe</td>
         <td>john@example.com</td>
+        <td><span class="glyphicon glyphicon-pencil"></td>
+        <td><span class="glyphicon glyphicon-remove"></td>
       </tr>
+      
       <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
+        <td>Hashim</td>
+        <td>Ali</td>
+        <td>hali@example.com</td>
+        <td><span class="glyphicon glyphicon-pencil"></td>
+        <td><span class="glyphicon glyphicon-remove"></td>
       </tr>
+      
       <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
+        <td>Clark</td>
+        <td>Max</td>
+        <td>max@example.com</td>
+        <td><span class="glyphicon glyphicon-pencil"></td>
+        <td><span class="glyphicon glyphicon-remove"></td>
       </tr>
+      
     </tbody>
   </table>
+  
 </div>
 
 </html>

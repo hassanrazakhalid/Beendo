@@ -23,4 +23,9 @@
     <put-attribute name="body" value="/WEB-INF/jsp/home.jsp" />
   </definition>
   
+  <definition name="physician" extends="Dashboard">
+    <put-attribute name="title" value="Physician" />
+    <put-attribute name="body" value="/WEB-INF/jsp/physician.jsp" />
+  </definition>
+  
 </tiles-definitions>

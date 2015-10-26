@@ -36,6 +36,15 @@ public class LoginController {
 	
 	}
 	
+	@RequestMapping(value = "/Physician", method = RequestMethod.GET)
+	public ModelAndView Physician(){
+		
+		ModelAndView mv = new ModelAndView("physician");
+		//addBaseUrl(mv);
+		return mv;
+	
+	}
+	
 //	@ModelAttribute
 	private void addBaseUrl(ModelAndView mv){
 		
