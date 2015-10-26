@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.Beendo.Constants.*;
 import com.Beendo.Entities.User;
-import com.Beendo.HibernateUtils.HibernateUtil;
+//import com.Beendo.HibernateUtils.HibernateUtil;
 
 @Controller
 public class LoginController {
@@ -43,22 +43,22 @@ public class LoginController {
 	
 	void addUser(){
 		
-		User user = new User();
-		user.setEmail("hassan@hotmail.com");
-		
-		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-		Session session = sessionFactory.openSession();
-			
-		session.beginTransaction();
-		
-//        Session session = sessionFactory.openSession();
-        session.save(user);
-//        session.save(studnet2);
-        
-        session.getTransaction().commit();
-        
-        session.close();
-        sessionFactory.close();
+//		User user = new User();
+//		user.setEmail("hassan@hotmail.com");
+//		
+//		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+//		Session session = sessionFactory.openSession();
+//			
+//		session.beginTransaction();
+//		
+////        Session session = sessionFactory.openSession();
+//        session.save(user);
+////        session.save(studnet2);
+//        
+//        session.getTransaction().commit();
+//        
+//        session.close();
+//        sessionFactory.close();
 
 		
 	}
