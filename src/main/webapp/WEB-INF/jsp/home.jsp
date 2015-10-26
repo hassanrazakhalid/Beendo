@@ -11,10 +11,7 @@
   	<button type="button" class="btn btn-success">Add Physician</button>
   </div>
   
-  <div class="row">
-  	<div class="span9" />
-  </div>
-                 
+ <div>
   <table class="table">
     <thead>
       <tr>
@@ -52,7 +49,8 @@
       </tr>
       
     </tbody>
-  </table>
+  </table> 
+ </div>
   
 </div>
 

@@ -26,7 +26,7 @@
         <li class="active"><a href="#">Home</a></li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">PMS <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="http://localhost:8080/Beendo/Physician">Physician</a></li>
+            <li><a href="http://localhost:8080/Beendo/physician">Physician</a></li>
             <li><a href="#">Insurances</a></li>
             <li><a href="#">Practices</a></li>
             <li role="separator" class="divider" />
