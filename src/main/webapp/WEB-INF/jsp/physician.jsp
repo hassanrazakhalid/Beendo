@@ -65,6 +65,7 @@
         <div class="modal-body">
           <input type="text" id="txtPhysicianName" class="form-control" placeholder="Email Physician Name" required autofocus>
         </div>
+        
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
