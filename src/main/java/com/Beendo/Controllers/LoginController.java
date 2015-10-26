@@ -2,6 +2,8 @@ package com.Beendo.Controllers;
 
 import java.util.Map;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.Beendo.Constants.*;
+import com.Beendo.Entities.User;
+import com.Beendo.HibernateUtils.HibernateUtil;
 
 @Controller
 public class LoginController {
@@ -31,9 +35,32 @@ public class LoginController {
 		String email = sender.get("email");
 		String password = sender.get("password");
 		
+		addUser();
+		
 		ModelAndView mv = new ModelAndView("home");
 		return mv;
+	}
 	
+	void addUser(){
+		
+		User user = new User();
+		user.setEmail("hassan@hotmail.com");
+		
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.openSession();
+			
+		session.beginTransaction();
+		
+//        Session session = sessionFactory.openSession();
+        session.save(user);
+//        session.save(studnet2);
+        
+        session.getTransaction().commit();
+        
+        session.close();
+        sessionFactory.close();
+
+		
 	}
 	
 	@RequestMapping(value = "/Physician", method = RequestMethod.GET)

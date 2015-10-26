@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -18,8 +19,7 @@ public class User {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "Persion_Id")
-	private Integer id;
+	private Integer user_id;
 	
 	@Column(name = "Name")
 	private String name;
@@ -31,35 +31,30 @@ public class User {
 	private String password;
 	
 	//relations
-	@OneToOne(mappedBy = "user",cascade = CascadeType.ALL, optional = true, fetch = FetchType.EAGER, orphanRemoval = true)
+	@OneToOne (cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id", nullable = true)
 	private	RoleAndPermission roleAndPermission;
 	
-	@OneToMany(mappedBy = "user")
-	private List<Practise> practiseList; 
+//	@OneToMany(mappedBy = "user")
+//	private List<Practise> practiseList; 
 	
 	//relations methods
 	
 	
 	//---
 	
-	public Integer getId() {
-		return id;
-	}
 	public RoleAndPermission getRole() {
 		return roleAndPermission;
 	}
 	public void setRole(RoleAndPermission role) {
 		this.roleAndPermission = role;
 	}
-	public List<Practise> getPractiseList() {
-		return practiseList;
-	}
-	public void setPractiseList(List<Practise> practiseList) {
-		this.practiseList = practiseList;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
+//	public List<Practise> getPractiseList() {
+//		return practiseList;
+//	}
+//	public void setPractiseList(List<Practise> practiseList) {
+//		this.practiseList = practiseList;
+//	}
 	public String getName() {
 		return name;
 	}
@@ -77,5 +72,19 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}	
+	}
+	public Integer getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(Integer user_id) {
+		this.user_id = user_id;
+	}
+	public RoleAndPermission getRoleAndPermission() {
+		return roleAndPermission;
+	}
+	public void setRoleAndPermission(RoleAndPermission roleAndPermission) {
+		this.roleAndPermission = roleAndPermission;
+	}
+	
+	
 }

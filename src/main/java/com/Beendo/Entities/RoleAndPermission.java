@@ -3,15 +3,18 @@ package com.Beendo.Entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Type;
 
 @Entity
 public class RoleAndPermission {
 
-	@Id
-	@GeneratedValue
+	@Id @GeneratedValue (generator = "New_Gen")// (strategy = GenerationType.AUTO)
+	@GenericGenerator(name = "New_Gen", strategy = "foreign", parameters ={@Parameter(value = "user", name = "property")})
 	private Integer id;
 	private String name;
 	
@@ -29,6 +32,7 @@ public class RoleAndPermission {
 	
 	// relations
 	@OneToOne
+	@JoinColumn(name = "user_id")
 	private User user;
 	
 	//relation methods
