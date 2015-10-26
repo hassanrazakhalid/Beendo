@@ -63,7 +63,7 @@ public class LoginController {
 		
 	}
 	
-	@RequestMapping(value = "/Physician", method = RequestMethod.GET)
+	@RequestMapping(value = "/physician", method = RequestMethod.GET)
 	public ModelAndView Physician(){
 		
 		ModelAndView mv = new ModelAndView("physician");
