@@ -35,7 +35,7 @@ public class LoginController {
 		String email = sender.get("email");
 		String password = sender.get("password");
 		
-		addUser();
+//		addUser();
 		
 		ModelAndView mv = new ModelAndView("home");
 		return mv;
