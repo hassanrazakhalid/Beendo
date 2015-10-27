@@ -1,7 +1,9 @@
 package com.Beendo.Controllers;
 
+import java.util.List;
 import java.util.Map;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Controller;
@@ -13,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.Beendo.Constants.*;
+import com.Beendo.Entities.RoleAndPermission;
 import com.Beendo.Entities.User;
 //import com.Beendo.HibernateUtils.HibernateUtil;
+import com.Beendo.HibernateUtils.HibernateUtil;
  
 @Controller
 public class LoginController {
@@ -35,30 +39,57 @@ public class LoginController {
 		String email = sender.get("email");
 		String password = sender.get("password");
 		
-		addUser();
+		getUsers();
+//		addUser();
 		
 		ModelAndView mv = new ModelAndView("home");
 		return mv;
 	}
 	
+	void getUsers(){
+		
+		String hql = "FROM User";
+//		String hql = "SELECT U.name FROM User U where U.name = :name";
+		
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.openSession();
+		
+		Query query = (Query)session.createQuery(hql);
+//		query.setParameter("name", "pk");
+		List results = query.list();
+	}
+	
 	void addUser(){
 		
-//		User user = new User();
-//		user.setEmail("hassan@hotmail.com");
-//		
-//		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-//		Session session = sessionFactory.openSession();
-//			
-//		session.beginTransaction();
-//		
-////        Session session = sessionFactory.openSession();
-//        session.save(user);
-////        session.save(studnet2);
-//        
-//        session.getTransaction().commit();
-//        
-//        session.close();
-//        sessionFactory.close();
+		User user = new User();
+		user.setEmail("hassan@hotmail.com");
+		user.setPassword("123456");
+		user.setName("HRK");
+		
+		RoleAndPermission role = new RoleAndPermission();
+		role.setType("admin");
+		role.setCreate(true);
+		role.setRead(true);
+		role.setDelete(false);
+		role.setUpdate(true);
+		
+//		user.setRole(role);
+		role.setUser(user);
+		
+		
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.openSession();
+			
+		session.beginTransaction();
+		
+//        Session session = sessionFactory.openSession();
+        session.save(role);
+//        session.save(studnet2);
+        
+        session.getTransaction().commit();
+        
+        session.close();
+        sessionFactory.close();
 
 		
 	}

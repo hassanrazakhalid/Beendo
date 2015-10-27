@@ -1,37 +1,42 @@
 package com.Beendo.Entities;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Type;
 
 @Entity
+@Table (name = "ROLES_PERMISSION")
 public class RoleAndPermission {
 
 	@Id @GeneratedValue (generator = "New_Gen")// (strategy = GenerationType.AUTO)
 	@GenericGenerator(name = "New_Gen", strategy = "foreign", parameters ={@Parameter(value = "user", name = "property")})
-	private Integer id;
-	private String name;
+	private Integer user_id;
 	
-	@Type(type = "org.hibernate.type.NumericBooleanType")
+	private String type;
+	
+	@Column (name = "Create_Permission")
 	private Boolean create;
 	
-	@Type(type = "org.hibernate.type.NumericBooleanType")
+	@Column (name = "Read_Permission")
 	private Boolean read;
 	
-	@Type(type = "org.hibernate.type.NumericBooleanType")
+	@Column (name = "Update_Permission")
 	private Boolean update;
 	
-	@Type(type = "org.hibernate.type.NumericBooleanType")
+	@Column (name = "Delete_Permission")
 	private Boolean delete;
 	
 	// relations
-	@OneToOne
+	@OneToOne (cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
 	private User user;
 	
@@ -45,9 +50,7 @@ public class RoleAndPermission {
 		//------
 	
  
-	public Integer getId() {
-		return id;
-	}
+	
 	public Boolean getCreate() {
 		return create;
 	}
@@ -72,14 +75,20 @@ public class RoleAndPermission {
 	public void setDelete(Boolean delete) {
 		this.delete = delete;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	
+
+	
+	public String getType() {
+		return type;
 	}
-	public String getName() {
-		return name;
+	public void setType(String type) {
+		this.type = type;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public Integer getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(Integer user_id) {
+		this.user_id = user_id;
 	}
 	
 	

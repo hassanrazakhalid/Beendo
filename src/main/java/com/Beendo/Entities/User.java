@@ -7,18 +7,24 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import com.Beendo.HibernateUtils.HibernateUtil;
+
 @Entity
 @Table(name = "USERS")
 public class User {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue (strategy = GenerationType.AUTO)
 	private Integer user_id;
 	
 	@Column(name = "Name")
@@ -86,5 +92,24 @@ public class User {
 		this.roleAndPermission = roleAndPermission;
 	}
 	
+	// Logic Methods
 	
+	public static User isUserValid(String email, String password){
+		
+		User user = null;
+		Session session = HibernateUtil.getSharedInstance().beginDBSession();
+		
+		Query query = session.createQuery("FROM User U where U.email = :email AND U.password = :password");
+		query.setParameter("email", email);
+		query.setParameter("password", password);
+		
+		List<User> result = query.list();
+		if(!result.isEmpty())
+			user = result.get(0);
+		
+		HibernateUtil.getSharedInstance().closeDBSession();
+		
+		return user;
+		
+	}
 }

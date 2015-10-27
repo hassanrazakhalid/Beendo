@@ -1,5 +1,6 @@
 package com.Beendo.HibernateUtils;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
@@ -9,7 +10,16 @@ public class HibernateUtil {
 
 	private static final SessionFactory sessionFactory = buildSessionFactory();
 	private static ServiceRegistry serviceRegistry;
-
+	private Session session;
+	private static HibernateUtil instance = null;
+	
+	public static HibernateUtil getSharedInstance(){
+		
+		if(instance == null)
+			instance = new HibernateUtil();
+		return instance;
+	}
+	
 	private static SessionFactory buildSessionFactory() {
 
 		try {
@@ -32,4 +42,21 @@ public class HibernateUtil {
 
 		return sessionFactory;
 	}
+	
+	public Session beginDBSession(){
+		
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+		return session;
+	}
+	
+	public void closeDBSession(){
+		
+		session.getTransaction().commit();
+        
+        session.close();
+        sessionFactory.close();
+	}
+
 }
