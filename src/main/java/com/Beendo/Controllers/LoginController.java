@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.Beendo.Constants.*;
 import com.Beendo.Entities.RoleAndPermission;
 import com.Beendo.Entities.User;
+import com.Beendo.Global.SharedData;
 //import com.Beendo.HibernateUtils.HibernateUtil;
 import com.Beendo.HibernateUtils.HibernateUtil;
  
@@ -39,8 +40,12 @@ public class LoginController {
 		String email = sender.get("email");
 		String password = sender.get("password");
 		
-		getUsers();
+		User user = User.isUserValid(email, password);
+		SharedData.getSharedInstace().currentUser = user;
+		
+//		getUsers();
 //		addUser();
+		
 		
 		ModelAndView mv = new ModelAndView("home");
 		return mv;
