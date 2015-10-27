@@ -2,7 +2,7 @@
 
 <html>
 
-<body>
+<body> 
 
 <div class="container">
   <h2>Add User</h2>  
@@ -58,7 +58,7 @@
     
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header"> 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Add User </h4>
         </div>

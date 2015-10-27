@@ -85,7 +85,7 @@
          </div>
           
         <br />        
-        <div class="row">
+        <div class="row"> 
 		  <div class="col-sm-6"><input type="date" placeholder="App file date" class="form-control"></div>
 		  <div class="col-sm-6"><input type="text" class="form-control" placeholder="Status"></div>
 	    </div>

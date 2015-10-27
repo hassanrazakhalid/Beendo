@@ -47,6 +47,6 @@
     <put-attribute name="title" value="users" />
     <put-attribute name="body" value="/WEB-INF/jsp/users.jsp" />
   </definition>
-  
+   
   
 </tiles-definitions>
