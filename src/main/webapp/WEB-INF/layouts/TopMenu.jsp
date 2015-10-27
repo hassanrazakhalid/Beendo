@@ -27,11 +27,11 @@
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">PMS <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="http://localhost:8080/Beendo/physician">Physician</a></li>
-            <li><a href="#">Insurances</a></li>
-            <li><a href="#">Practices</a></li>
+            <li><a href="http://localhost:8080/Beendo/insurance">Insurances</a></li>
+            <li><a href="http://localhost:8080/Beendo/practice">Practices</a></li>
             <li role="separator" class="divider" />
-            <li><a href="#">User</a></li>
-            <li><a href="#">Role & Permission</a></li>
+            <li><a href="http://localhost:8080/Beendo/users">User</a></li>
+            <li><a href="http://localhost:8080/Beendo/roles">Role & Permission</a></li>
           </ul>
         </li>
 

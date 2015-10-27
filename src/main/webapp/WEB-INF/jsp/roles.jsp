@@ -5,50 +5,48 @@
 <body>
 
 <div class="container">
-  <h2>Physician Info</h2> 
-  <br />   
+  <h2>Role And Permission</h2>  
+  <br /> 
   
   <div>
-  	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add Physician</button>
+  	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add Role</button>
   </div>
+  
   <br /> 
   
  <div>
   <table class="table">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+        <th>Role Name</th>
+        <th>Can Add</th>
+        <th>Can Edit</th>
+        <th>Can Delete</th>
         <th>Edit</th>
         <th>Delete</th>
         
       </tr>
     </thead>
     <tbody>
+      
       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
+        <td>Admin</td>
+        <td><span class="glyphicon glyphicon-ok"></td>
+        <td><span class="glyphicon glyphicon-ok"></td>
+        <td><span class="glyphicon glyphicon-ok"></td>
         <td><span class="glyphicon glyphicon-pencil"></td>
         <td><span class="glyphicon glyphicon-remove"></td>
       </tr>
       
       <tr>
-        <td>Hashim</td>
-        <td>Ali</td>
-        <td>hali@example.com</td>
+        <td>User</td>
+        <td><span class="glyphicon glyphicon-remove"></td>
+        <td><span class="glyphicon glyphicon-ok"></td>
+        <td><span class="glyphicon glyphicon-remove"></td>
         <td><span class="glyphicon glyphicon-pencil"></td>
         <td><span class="glyphicon glyphicon-remove"></td>
       </tr>
-      
-      <tr>
-        <td>Clark</td>
-        <td>Max</td>
-        <td>max@example.com</td>
-        <td><span class="glyphicon glyphicon-pencil"></td>
-        <td><span class="glyphicon glyphicon-remove"></td>
-      </tr>
+     
       
     </tbody>
   </table> 
@@ -62,10 +60,24 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Add Physician</h4>
+          <h4 class="modal-title">Role and Permission </h4>
         </div>
         <div class="modal-body">
-          <input type="text" id="txtPhysicianName" class="form-control" placeholder="Enter Physician Name" required autofocus>
+          <input type="text" id="txtPhysicianName" class="form-control" placeholder="Enter Role Name" required autofocus>
+        
+         <br />
+          <div class="checkbox">
+  	      	<label><input type="checkbox" value="">Can Add</label>
+		  </div>
+		  
+	 	  <div class="checkbox">
+  		  	<label><input type="checkbox" value="">Can Edit</label>
+		  </div>
+		  
+		  <div class="checkbox">
+  		  	<label><input type="checkbox" value="">Can Delete</label>
+		  </div>
+        
         </div>
         
         <div class="modal-footer">

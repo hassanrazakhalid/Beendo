@@ -5,12 +5,13 @@
 <body>
 
 <div class="container">
-  <h2>Physician Info</h2> 
-  <br />   
+  <h2>Practice Info</h2>  
+  <br /> 
   
   <div>
-  	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add Physician</button>
+  	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add Practice</button>
   </div>
+  
   <br /> 
   
  <div>
@@ -26,13 +27,6 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-        <td><span class="glyphicon glyphicon-pencil"></td>
-        <td><span class="glyphicon glyphicon-remove"></td>
-      </tr>
       
       <tr>
         <td>Hashim</td>
@@ -62,10 +56,10 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Add Physician</h4>
+          <h4 class="modal-title">Add Practice</h4>
         </div>
         <div class="modal-body">
-          <input type="text" id="txtPhysicianName" class="form-control" placeholder="Enter Physician Name" required autofocus>
+          <input type="text" id="txtPhysicianName" class="form-control" placeholder="Enter Practice Name" required autofocus>
         </div>
         
         <div class="modal-footer">

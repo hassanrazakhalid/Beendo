@@ -5,11 +5,13 @@
 <body>
 
 <div class="container">
-  <h2>Practices Info</h2>   
+  <h2>Practices Records</h2>   
+  <br /> 
   
   <div>
   	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add Record</button>
   </div>
+  <br /> 
   
  <div>
   <table class="table">
@@ -60,13 +62,50 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <h4 class="modal-title">Practice Record</h4>
         </div>
         <div class="modal-body">
-          <p>Some text in the modal.</p>
+        
+        <div class="row">  
+	        <div class="col-sm-6">     
+	          <select class="form-control" id="selRole">
+	        	<option>Select Physician</option>
+	        	<option>Mathew</option>
+	        	<option>Alan</option>
+	          </select>
+	          </div>
+	          
+	          <div class="col-sm-6"> 
+		          <select class="form-control" id="selPractices">
+		        	<option>Select Insurance</option>
+		        	<option>A-type</option>
+		        	<option>Care Med</option>
+		          </select>
+	          </div>
+         </div>
+          
+        <br />        
+        <div class="row">
+		  <div class="col-sm-6"><input type="date" placeholder="App file date" class="form-control"></div>
+		  <div class="col-sm-6"><input type="text" class="form-control" placeholder="Status"></div>
+	    </div>
+	    
+	    <br />
+	    <div class="row">
+		  <div class="col-sm-6"><input type="date" class="form-control" placeholder="Status"></div>
+		  <div class="col-sm-6"><input type="date" class="form-control" placeholder="Status"></div>
+	    </div>
+	    
+	    <br />
+	    <div class="row">
+		  <div class="col-sm-6"><input type="text" class="form-control" placeholder="Last Contact"></div>
+		  <div class="col-sm-6"><input type="text" class="form-control" placeholder="Comment"></div>
+	    </div>
+          
+        <br />
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
         </div>
       </div>
       

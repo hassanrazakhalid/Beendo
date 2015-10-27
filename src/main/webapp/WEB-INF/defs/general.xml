@@ -28,4 +28,25 @@
     <put-attribute name="body" value="/WEB-INF/jsp/physician.jsp" />
   </definition>
   
+  <definition name="insurance" extends="Dashboard">
+    <put-attribute name="title" value="insurance" />
+    <put-attribute name="body" value="/WEB-INF/jsp/insurance.jsp" />
+  </definition>
+  
+  <definition name="practice" extends="Dashboard">
+    <put-attribute name="title" value="practice" />
+    <put-attribute name="body" value="/WEB-INF/jsp/practice.jsp" />
+  </definition>
+  
+  <definition name="roles" extends="Dashboard">
+    <put-attribute name="title" value="roles" />
+    <put-attribute name="body" value="/WEB-INF/jsp/roles.jsp" />
+  </definition>
+  
+  <definition name="users" extends="Dashboard">
+    <put-attribute name="title" value="users" />
+    <put-attribute name="body" value="/WEB-INF/jsp/users.jsp" />
+  </definition>
+  
+  
 </tiles-definitions>
