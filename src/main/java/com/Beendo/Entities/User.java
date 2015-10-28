@@ -1,5 +1,6 @@
 package com.Beendo.Entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -41,8 +42,8 @@ public class User {
 	@JoinColumn(name = "user_id", nullable = true)
 	private	RoleAndPermission roleAndPermission;
 	
-//	@OneToMany(mappedBy = "user")
-//	private List<Practise> practiseList; 
+	@OneToMany (cascade = CascadeType.ALL)
+	private List<Practise> practiseList = new ArrayList<Practise>(); 
 	
 	//relations methods
 	
@@ -94,6 +95,12 @@ public class User {
 	
 	// Logic Methods
 	
+	public List<Practise> getPractiseList() {
+		return practiseList;
+	}
+	public void setPractiseList(List<Practise> practiseList) {
+		this.practiseList = practiseList;
+	}
 	public static User isUserValid(String email, String password){
 		
 		User user = null;

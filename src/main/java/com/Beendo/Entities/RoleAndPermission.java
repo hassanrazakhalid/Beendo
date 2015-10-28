@@ -4,6 +4,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -17,9 +18,13 @@ import org.hibernate.annotations.Type;
 @Table (name = "ROLES_PERMISSION")
 public class RoleAndPermission {
 
-	@Id @GeneratedValue (generator = "New_Gen")// (strategy = GenerationType.AUTO)
-	@GenericGenerator(name = "New_Gen", strategy = "foreign", parameters ={@Parameter(value = "user", name = "property")})
-	private Integer user_id;
+//	@Id @GeneratedValue (generator = "New_Gen")// (strategy = GenerationType.AUTO)
+//	@GenericGenerator(name = "New_Gen", strategy = "foreign", parameters ={@Parameter(value = "user", name = "property")})
+//	private Integer user_id;
+	
+	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer role_Id;
+	
 	
 	private String type;
 	
@@ -36,17 +41,17 @@ public class RoleAndPermission {
 	private Boolean delete;
 	
 	// relations
-	@OneToOne (cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id")
-	private User user;
+//	@OneToOne (cascade = CascadeType.ALL)
+//	@JoinColumn(name = "user_id")
+//	private User user;
 	
 	//relation methods
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+//	public User getUser() {
+//		return user;
+//	}
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
 		//------
 	
  
@@ -84,12 +89,12 @@ public class RoleAndPermission {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public Integer getUser_id() {
-		return user_id;
-	}
-	public void setUser_id(Integer user_id) {
-		this.user_id = user_id;
-	}
+//	public Integer getUser_id() {
+//		return user_id;
+//	}
+//	public void setUser_id(Integer user_id) {
+//		this.user_id = user_id;
+//	}
 	
 	
 	

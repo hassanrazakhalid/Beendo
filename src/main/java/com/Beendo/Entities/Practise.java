@@ -1,5 +1,6 @@
 package com.Beendo.Entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -8,8 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "PRACISE_LIST")
 public class Practise {
 
 	@Id
@@ -18,12 +21,11 @@ public class Practise {
 	private String name;
 	
 	// relations
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private User user;
+//	@ManyToOne
+//	private User user;
 
-	@OneToMany(mappedBy = "practise")
-	private List<InsuranceDetail> insuranceDetail;
+	@OneToMany
+	private List<InsuranceDetail> insuranceDetail = new ArrayList<InsuranceDetail>();
 
 	//relation methods
 	
@@ -59,14 +61,14 @@ public class Practise {
 	}
 
 
-	public User getUser() {
-		return user;
-	}
-
-
-	public void setUser(User user) {
-		this.user = user;
-	}
+//	public User getUser() {
+//		return user;
+//	}
+//
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
 	
 	
 }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.Beendo.Constants.*;
+import com.Beendo.Entities.Practise;
 import com.Beendo.Entities.RoleAndPermission;
 import com.Beendo.Entities.User;
 import com.Beendo.Global.SharedData;
@@ -40,11 +41,11 @@ public class LoginController {
 		String email = sender.get("email");
 		String password = sender.get("password");
 		
-		User user = User.isUserValid(email, password);
-		SharedData.getSharedInstace().currentUser = user;
+//		User user = User.isUserValid(email, password);
+//		SharedData.getSharedInstace().currentUser = user;
 		
 //		getUsers();
-//		addUser();
+		addUser();
 		
 		
 		ModelAndView mv = new ModelAndView("home");
@@ -78,8 +79,12 @@ public class LoginController {
 		role.setDelete(false);
 		role.setUpdate(true);
 		
-//		user.setRole(role);
-		role.setUser(user);
+		user.setRole(role);
+//		role.setUser(user);
+		Practise practise = new Practise();
+		practise.setName("Clinic");
+		
+		user.getPractiseList().add(practise);
 		
 		
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
@@ -88,7 +93,7 @@ public class LoginController {
 		session.beginTransaction();
 		
 //        Session session = sessionFactory.openSession();
-        session.save(role);
+        session.save(user);
 //        session.save(studnet2);
         
         session.getTransaction().commit();

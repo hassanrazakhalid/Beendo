@@ -7,20 +7,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "COMMENTS_INSURANCE")
 public class Comment {
 
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Integer commend_Id;
 	private String detail;
 	private Date date;
 	
 	// relations
 	
 	@ManyToOne
-	@JoinColumn (name = "id", insertable = false, updatable = false)
 	private InsuranceDetail insuranceDetail;
 	
 	//relation methods
@@ -28,18 +29,20 @@ public class Comment {
 	
 		//------
 	
-	public Integer getId() {
-		return id;
-	}
+
 	public InsuranceDetail getInsuranceDetail() {
 		return insuranceDetail;
+	}
+	public Integer getCommend_Id() {
+		return commend_Id;
+	}
+	public void setCommend_Id(Integer commend_Id) {
+		this.commend_Id = commend_Id;
 	}
 	public void setInsuranceDetail(InsuranceDetail insuranceDetail) {
 		this.insuranceDetail = insuranceDetail;
 	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	
 	public String getDetail() {
 		return detail;
 	}
