@@ -21,6 +21,7 @@ import com.Beendo.Entities.User;
 import com.Beendo.Global.SharedData;
 //import com.Beendo.HibernateUtils.HibernateUtil;
 import com.Beendo.HibernateUtils.HibernateUtil;
+import com.Beendo.Service.UserService;
  
 @Controller
 public class LoginController {
@@ -67,39 +68,43 @@ public class LoginController {
 	
 	void addUser(){
 		
+		UserService userService = new UserService();
+		
 		User user = new User();
 		user.setEmail("hassan@hotmail.com");
 		user.setPassword("123456");
 		user.setName("HRK");
 		
-		RoleAndPermission role = new RoleAndPermission();
-		role.setType("admin");
-		role.setCreate(true);
-		role.setRead(true);
-		role.setDelete(false);
-		role.setUpdate(true);
+		userService.save(user);
 		
-		user.setRole(role);
-//		role.setUser(user);
-		Practise practise = new Practise();
-		practise.setName("Clinic");
-		
-		user.getPractiseList().add(practise);
-		
-		
-		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-		Session session = sessionFactory.openSession();
-			
-		session.beginTransaction();
-		
-//        Session session = sessionFactory.openSession();
-        session.save(user);
-//        session.save(studnet2);
-        
-        session.getTransaction().commit();
-        
-        session.close();
-        sessionFactory.close();
+//		RoleAndPermission role = new RoleAndPermission();
+//		role.setType("admin");
+//		role.setCreate(true);
+//		role.setRead(true);
+//		role.setDelete(false);
+//		role.setUpdate(true);
+//		
+//		user.setRole(role);
+////		role.setUser(user);
+//		Practise practise = new Practise();
+//		practise.setName("Clinic");
+//		
+//		user.getPractiseList().add(practise);
+//		
+//		
+//		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+//		Session session = sessionFactory.openSession();
+//			
+//		session.beginTransaction();
+//		
+////        Session session = sessionFactory.openSession();
+//        session.save(user);
+////        session.save(studnet2);
+//        
+//        session.getTransaction().commit();
+//        
+//        session.close();
+//        sessionFactory.close();
 
 		
 	}
