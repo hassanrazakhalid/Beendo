@@ -13,23 +13,20 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.Beendo.Entities.RoleAndPermission;
-import com.Beendo.Entities.User;
 import com.Beendo.HibernateUtils.HibernateUtil;
 
 public class RoleAndPermissionDao extends RootDao implements UserDaoInterface<RoleAndPermission, String> {
 
-	private Session currentSession;
-	
-	private Transaction currentTransaction;
-	
 	public void save(RoleAndPermission entity) {
 		// TODO Auto-generated method stub
+		
 		this.currentSession.save(entity);
+		
 	}
 
 	public void update(RoleAndPermission entity) {
 		// TODO Auto-generated method stub
-		
+		this.currentSession.update(entity);
 	}
 
 	public RoleAndPermission findById(String id) {
@@ -37,7 +34,7 @@ public class RoleAndPermissionDao extends RootDao implements UserDaoInterface<Ro
 		return null;
 	}
 
-	public void delete(User entity) {
+	public void delete(RoleAndPermission entity) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -51,9 +48,6 @@ public class RoleAndPermissionDao extends RootDao implements UserDaoInterface<Ro
 		// TODO Auto-generated method stub
 		
 	}
-	public void delete(RoleAndPermission entity) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 }

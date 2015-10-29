@@ -7,28 +7,29 @@ import javax.persistence.Id;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import com.Beendo.Dao.UserDao;
-import com.Beendo.Entities.User;
+import com.Beendo.Dao.*;
+import com.Beendo.Entities.*;
 import com.Beendo.HibernateUtils.HibernateUtil;
 
 public class UserService {
 
 	private static UserDao userDao;
+	private static RoleAndPermissionDao roleAndPermissionDao;
 	
 	public UserService(){
 		
-		this.userDao = new UserDao();
-		
+		userDao = new UserDao();	
+		roleAndPermissionDao = new RoleAndPermissionDao();
 	}
 	
 	public void save(User entity){
 		
-		this.userDao.openSession();
-		this.userDao.openTransaction();
+		userDao.openSession();
+		userDao.openTransaction();
 		
-		this.userDao.save(entity);
+		userDao.save(entity);
 		
-		this.userDao.closeSession();
+		userDao.closeSession();
 		
 	}
 	
@@ -56,14 +57,23 @@ public class UserService {
 		
 	}
 	
-	public User isUserValid(String email, String password){
+	public static User isUserValid(String email, String password){
 		
 		userDao.openSession();
 		userDao.openTransaction();
 		User user =	userDao.isUserValid(email, password);
 		userDao.closeSession();
-		
 		return user;
+	}
+	
+	public void setUserRoleAndPermis(RoleAndPermission sender, User user){
+		
+		userDao.openSession();
+		userDao.openTransaction();
+		
+		user.setRoleAndPermission(sender);
+		
+		userDao.closeSession();
 		
 	}
 }

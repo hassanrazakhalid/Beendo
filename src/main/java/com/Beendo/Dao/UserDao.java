@@ -17,9 +17,6 @@ import com.Beendo.HibernateUtils.HibernateUtil;
 
 public class UserDao extends RootDao implements UserDaoInterface<User, String> {
 
-	private Session currentSession;
-	
-	private Transaction currentTransaction;
 	
 	public void save(User entity) {
 		// TODO Auto-generated method stub
@@ -28,7 +25,7 @@ public class UserDao extends RootDao implements UserDaoInterface<User, String> {
 
 	public void update(User entity) {
 		// TODO Auto-generated method stub
-		
+		this.currentSession.update(entity);
 	}
 
 	public User findById(String id) {
@@ -63,32 +60,6 @@ public class UserDao extends RootDao implements UserDaoInterface<User, String> {
 		if(!result.isEmpty())
 			user = result.get(0);
 		
-		return user;
-		
+		return user;	
 	}
-
-	
-	
-//	public void openSession() {
-//		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-//		this.currentSession = sessionFactory.openSession();
-//	}
-//
-//	public void closeSession() {
-//		
-//		this.currentTransaction.commit();
-//		this.currentSession.close();
-//	}
-//	public void openTransaction() {
-//		this.currentTransaction =  this.currentSession.beginTransaction();
-//	}
-//
-//	public Session getCurrentSession() {
-//		return currentSession;
-//	}
-//
-//	public Transaction getCurrentTransaction() {
-//		return currentTransaction;
-//	}
-//	
 }

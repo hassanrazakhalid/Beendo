@@ -34,17 +34,13 @@ public class Practise {
 		return id;
 	}
 
-
 	public List<InsuranceDetail> getInsuranceDetail() {
 		return insuranceDetail;
 	}
 
-
 	public void setInsuranceDetail(List<InsuranceDetail> insuranceDetail) {
 		this.insuranceDetail = insuranceDetail;
 	}
-
-	
 
 	public String getName() {
 		return name;

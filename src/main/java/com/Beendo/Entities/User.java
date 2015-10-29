@@ -49,13 +49,6 @@ public class User {
 	
 	
 	//---
-	
-	public RoleAndPermission getRole() {
-		return roleAndPermission;
-	}
-	public void setRole(RoleAndPermission role) {
-		this.roleAndPermission = role;
-	}
 //	public List<Practise> getPractiseList() {
 //		return practiseList;
 //	}

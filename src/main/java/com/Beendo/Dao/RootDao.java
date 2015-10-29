@@ -4,13 +4,15 @@ package com.Beendo.Dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+
+import com.Beendo.Entities.RoleAndPermission;
 import com.Beendo.HibernateUtils.HibernateUtil;
 
 public class RootDao {
 
-	private Session currentSession;
+	public Session currentSession;
 	
-	private Transaction currentTransaction;
+	public Transaction currentTransaction;
 		
 	public void openSession() {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
@@ -18,7 +20,6 @@ public class RootDao {
 	}
 
 	public void closeSession() {
-		
 		this.currentTransaction.commit();
 		this.currentSession.close();
 	}
@@ -33,5 +34,4 @@ public class RootDao {
 	public Transaction getCurrentTransaction() {
 		return currentTransaction;
 	}
-	
 }
