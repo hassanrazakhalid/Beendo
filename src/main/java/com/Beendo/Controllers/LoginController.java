@@ -42,7 +42,7 @@ public class LoginController {
 		String email = sender.get("email");
 		String password = sender.get("password");
 		
-		/*
+		
 		UserService userService = new UserService();
 		User user = userService.isUserValid(email, password);
 //		User user = User.isUserValid(email, password);
@@ -50,7 +50,7 @@ public class LoginController {
 		
 //		getUsers();
 //		addUser();
-		*/
+		
 		
 		ModelAndView mv = new ModelAndView("home");
 		return mv;

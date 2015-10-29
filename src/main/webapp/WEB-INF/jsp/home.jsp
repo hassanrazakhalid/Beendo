@@ -3,7 +3,7 @@
 <html>
 
 <body>
- 
+  
 <div class="container">
   <h2>Practices Records</h2>   
   <br /> 
