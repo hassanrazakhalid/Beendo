@@ -1,4 +1,5 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html>
 
@@ -18,9 +19,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+        <th>Practice Name</th>
         <th>Edit</th>
         <th>Delete</th>
         
@@ -28,27 +27,24 @@
     </thead>
     <tbody>
       
-      <tr>
-        <td>Hashim</td>
-        <td>Ali</td>
-        <td>hali@example.com</td>
-        <td><span class="glyphicon glyphicon-pencil"></td>
-        <td><span class="glyphicon glyphicon-remove"></td>
-      </tr>
       
-      <tr>
-        <td>Clark</td>
-        <td>Max</td>
-        <td>max@example.com</td>
-        <td><span class="glyphicon glyphicon-pencil"></td>
-        <td><span class="glyphicon glyphicon-remove"></td>
-      </tr>
+      <c:forEach items="${Practices}" var="obj">
+      	<tr>
+        	<td>${obj.name}</td>
+        	<td><span class="glyphicon glyphicon-pencil"></td>
+        	<td><span class="glyphicon glyphicon-remove"></td>
+      	</tr>     
+	  </c:forEach>
+      
+      
       
     </tbody>
   </table> 
  </div>
  
  <!-- Modal -->
+ 
+ <form action="http://localhost:8080/Beendo/addPractice" method="post">
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -59,17 +55,17 @@
           <h4 class="modal-title">Add Practice</h4>
         </div>
         <div class="modal-body">
-          <input type="text" id="txtPhysicianName" class="form-control" placeholder="Enter Practice Name" required autofocus>
+          <input type="text" name="txtPracticeName" class="form-control" placeholder="Enter Practice Name" required autofocus>
         </div>
         
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button class="btn btn-default" type="submit">Save</button>
         </div>
       </div>
       
     </div>
   </div>
+</form>  
   
 </div>
 
