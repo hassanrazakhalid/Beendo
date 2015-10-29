@@ -8,7 +8,7 @@ public class Constants {
 
 	
 	// Keys
-	public static String _kROLE_TYPE = "type";
+	public static String _kROLE_TYPE = "roleName";
 	public static String _kCreate = "create";
 	public static String _kRead = "read";
 	public static String _kUpdate = "update";

@@ -62,8 +62,17 @@ public class RoleAndPermissionService implements UserDaoInterface<RoleAndPermiss
 	}
 
 	public List<RoleAndPermission> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<RoleAndPermission>result = null;
+		
+		roleAndPermission.openSession();
+		roleAndPermission.openTransaction();
+		
+		result = roleAndPermission.findAll();
+		
+		roleAndPermission.closeSession();
+		
+		return result;
 	}
 
 	public void deleteAll() {
@@ -71,17 +80,27 @@ public class RoleAndPermissionService implements UserDaoInterface<RoleAndPermiss
 		
 	}
 	
-	public static RoleAndPermission getObject(String type, HashMap<String, Boolean>hashMap){
+	public static RoleAndPermission getObject(HashMap<String, String>hashMap){
 		
 		RoleAndPermission roleAndPermis = new RoleAndPermission();
-		roleAndPermis.setType(type);
-		roleAndPermis.setCreate(hashMap.get(Constants._kCreate));
-		roleAndPermis.setRead(hashMap.get(Constants._kRead));
-		roleAndPermis.setDelete(hashMap.get(Constants._kDelete));
-		roleAndPermis.setUpdate(hashMap.get(Constants._kUpdate));
 		
+		String createValue = hashMap.get(Constants._kCreate);
+		String deleteValue = hashMap.get(Constants._kDelete);
+		String updateValue = hashMap.get(Constants._kUpdate);
+		
+		try {
+			roleAndPermis.setType(hashMap.get(Constants._kROLE_TYPE));
+			
+			roleAndPermis.setCreate(Boolean.valueOf(createValue));
+			roleAndPermis.setRead(true);
+			roleAndPermis.setDelete(Boolean.valueOf(deleteValue));
+			roleAndPermis.setUpdate(Boolean.valueOf(updateValue));			
+		} catch (Exception e) {
+			
+			System.out.println(e.getMessage());
+			
+		}
 		return roleAndPermis;
-		
 	}
 
 }

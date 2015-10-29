@@ -41,7 +41,7 @@ public class RoleAndPermissionDao extends RootDao implements UserDaoInterface<Ro
 
 	public List<RoleAndPermission> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.currentSession.createQuery("FROM RoleAndPermission").list();
 	}
 
 	public void deleteAll() {
