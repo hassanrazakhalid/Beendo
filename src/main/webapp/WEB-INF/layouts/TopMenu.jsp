@@ -18,12 +18,12 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Bendoo</a>
+      <a class="navbar-brand" href="http://localhost:8080/Beendo/home">Bendoo</a>
     </div>
     <div>
      
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <li class="active"><a href="http://localhost:8080/Beendo/home">Home</a></li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">PMS <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="http://localhost:8080/Beendo/physician">Physician</a></li>

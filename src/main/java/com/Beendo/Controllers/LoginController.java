@@ -42,6 +42,7 @@ public class LoginController {
 		String email = sender.get("email");
 		String password = sender.get("password");
 		
+		/*
 		UserService userService = new UserService();
 		User user = userService.isUserValid(email, password);
 //		User user = User.isUserValid(email, password);
@@ -49,7 +50,7 @@ public class LoginController {
 		
 //		getUsers();
 //		addUser();
-		
+		*/
 		
 		ModelAndView mv = new ModelAndView("home");
 		return mv;
@@ -112,14 +113,6 @@ public class LoginController {
 	}
 	
 	
-	@RequestMapping(value = "/physician", method = RequestMethod.GET)
-	public ModelAndView Physician(){
-		
-		ModelAndView mv = new ModelAndView("physician");
-		//addBaseUrl(mv);
-		return mv;
-	
-	}
 	
 //	@ModelAttribute
 	private void addBaseUrl(ModelAndView mv){
