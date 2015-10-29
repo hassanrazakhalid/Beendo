@@ -101,22 +101,4 @@ public class User {
 	public void setPractiseList(List<Practise> practiseList) {
 		this.practiseList = practiseList;
 	}
-	public static User isUserValid(String email, String password){
-		
-		User user = null;
-		Session session = HibernateUtil.getSharedInstance().beginDBSession();
-		
-		Query query = session.createQuery("FROM User U where U.email = :email AND U.password = :password");
-		query.setParameter("email", email);
-		query.setParameter("password", password);
-		
-		List<User> result = query.list();
-		if(!result.isEmpty())
-			user = result.get(0);
-		
-		HibernateUtil.getSharedInstance().closeDBSession();
-		
-		return user;
-		
-	}
 }

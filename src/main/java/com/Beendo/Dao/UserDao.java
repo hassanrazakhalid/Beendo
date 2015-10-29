@@ -15,7 +15,7 @@ import org.hibernate.Transaction;
 import com.Beendo.Entities.User;
 import com.Beendo.HibernateUtils.HibernateUtil;
 
-public class UserDao implements UserDaoInterface<User, String> {
+public class UserDao extends RootDao implements UserDaoInterface<User, String> {
 
 	private Session currentSession;
 	
@@ -69,26 +69,26 @@ public class UserDao implements UserDaoInterface<User, String> {
 
 	
 	
-	public void openSession() {
-		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-		this.currentSession = sessionFactory.openSession();
-	}
-
-	public void closeSession() {
-		
-		this.currentTransaction.commit();
-		this.currentSession.close();
-	}
-	public void openTransaction() {
-		this.currentTransaction =  this.currentSession.beginTransaction();
-	}
-
-	public Session getCurrentSession() {
-		return currentSession;
-	}
-
-	public Transaction getCurrentTransaction() {
-		return currentTransaction;
-	}
-	
+//	public void openSession() {
+//		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+//		this.currentSession = sessionFactory.openSession();
+//	}
+//
+//	public void closeSession() {
+//		
+//		this.currentTransaction.commit();
+//		this.currentSession.close();
+//	}
+//	public void openTransaction() {
+//		this.currentTransaction =  this.currentSession.beginTransaction();
+//	}
+//
+//	public Session getCurrentSession() {
+//		return currentSession;
+//	}
+//
+//	public Transaction getCurrentTransaction() {
+//		return currentTransaction;
+//	}
+//	
 }

@@ -60,7 +60,6 @@ public class UserService {
 		
 		userDao.openSession();
 		userDao.openTransaction();
-		
 		User user =	userDao.isUserValid(email, password);
 		userDao.closeSession();
 		
