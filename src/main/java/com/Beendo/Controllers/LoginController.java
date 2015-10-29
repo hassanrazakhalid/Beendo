@@ -42,11 +42,13 @@ public class LoginController {
 		String email = sender.get("email");
 		String password = sender.get("password");
 		
+		UserService userService = new UserService();
+		User user = userService.isUserValid(email, password);
 //		User user = User.isUserValid(email, password);
-//		SharedData.getSharedInstace().currentUser = user;
+		SharedData.getSharedInstace().currentUser = user;
 		
 //		getUsers();
-		addUser();
+//		addUser();
 		
 		
 		ModelAndView mv = new ModelAndView("home");

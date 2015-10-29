@@ -4,8 +4,12 @@ import java.util.List;
 
 import javax.persistence.Id;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+
 import com.Beendo.Dao.UserDao;
 import com.Beendo.Entities.User;
+import com.Beendo.HibernateUtils.HibernateUtil;
 
 public class UserService {
 
@@ -49,6 +53,18 @@ public class UserService {
 	
 	public void deleteAll(){
 		
+		
+	}
+	
+	public User isUserValid(String email, String password){
+		
+		userDao.openSession();
+		userDao.openTransaction();
+		
+		User user =	userDao.isUserValid(email, password);
+		userDao.closeSession();
+		
+		return user;
 		
 	}
 }
