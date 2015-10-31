@@ -3,33 +3,42 @@ package com.Beendo.Service;
 import java.util.List;
 
 import javax.persistence.Id;
+import javax.transaction.Transactional;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import com.Beendo.Dao.*;
 import com.Beendo.Entities.*;
 import com.Beendo.HibernateUtils.HibernateUtil;
 
+
+@Service
 public class UserService {
 
-	private static UserDao userDao;
-	private static RoleAndPermissionDao roleAndPermissionDao;
+	@Autowired
+//	@Qualifier("UserDao")
+	private UserDaoInterface userDao;
+//	private UserDao userDao;
+//	private static RoleAndPermissionDao roleAndPermissionDao;
 	
-	public UserService(){
-		
-		userDao = new UserDao();	
-		roleAndPermissionDao = new RoleAndPermissionDao();
-	}
+//	public UserService(){
+//		
+////		userDao = new UserDao();	
+//		roleAndPermissionDao = new RoleAndPermissionDao();
+//	}
 	
 	public void save(User entity){
 		
-		userDao.openSession();
-		userDao.openTransaction();
+//		userDao.openSession();
+//		userDao.openTransaction();
 		
-		userDao.save(entity);
+//		userDao.save(entity);
 		
-		userDao.closeSession();
+//		userDao.closeSession();
 		
 	}
 	
@@ -57,23 +66,30 @@ public class UserService {
 		
 	}
 	
-	public static User isUserValid(String email, String password){
+	@Transactional
+	public User isUserValid(String email, String password){
 		
-		userDao.openSession();
-		userDao.openTransaction();
+//		System.out.println("Testing");
+//		userDao.openSession();
+//		userDao.openTransaction();
 		User user =	userDao.isUserValid(email, password);
-		userDao.closeSession();
+//		userDao.closeSession();
 		return user;
 	}
 	
 	public void setUserRoleAndPermis(RoleAndPermission sender, User user){
 		
-		userDao.openSession();
-		userDao.openTransaction();
+//		userDao.openSession();
+//		userDao.openTransaction();
 		
 		user.setRoleAndPermission(sender);
 		
-		userDao.closeSession();
+//		userDao.closeSession();
 		
+	}
+
+	public User findById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -16,7 +16,7 @@ import com.Beendo.Entities.RoleAndPermission;
 import com.Beendo.Entities.User;
 import com.Beendo.HibernateUtils.HibernateUtil;
 
-public class RoleAndPermissionService implements UserDaoInterface<RoleAndPermission, String> {
+public class RoleAndPermissionService {
 
 	private static RoleAndPermissionDao roleAndPermission;
 	

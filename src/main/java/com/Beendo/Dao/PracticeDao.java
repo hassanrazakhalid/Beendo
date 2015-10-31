@@ -5,7 +5,7 @@ import java.util.List;
 import com.Beendo.Entities.Practise;
 import com.Beendo.Entities.User;
 
-public class PracticeDao extends RootDao implements UserDaoInterface<Practise, String> {
+public class PracticeDao extends RootDao {
 
 	public void save(Practise entity) {
 		// TODO Auto-generated method stub

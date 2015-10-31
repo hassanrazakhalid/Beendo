@@ -5,17 +5,21 @@ import java.util.List;
 
 import org.hibernate.Session;
 
-public interface UserDaoInterface<T,Id extends Serializable> {
+import com.Beendo.Entities.User;
 
-	public void save(T entity);
+public interface UserDaoInterface {
+
+	public void save(User entity);
 	
-	public void update(T entity);
+	public void update(User entity);
 	
-	public T findById(Id id);
+//	public T findById(Id id);
 	
-	public void delete(T entity);
+	public void delete(User entity);
 	
-	public List<T> findAll();
+	public List<User> findAll();
 	
 	public void deleteAll();
+
+	public User isUserValid(String email, String password);
 }

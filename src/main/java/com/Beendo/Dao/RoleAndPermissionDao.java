@@ -15,7 +15,7 @@ import org.hibernate.Transaction;
 import com.Beendo.Entities.RoleAndPermission;
 import com.Beendo.HibernateUtils.HibernateUtil;
 
-public class RoleAndPermissionDao extends RootDao implements UserDaoInterface<RoleAndPermission, String> {
+public class RoleAndPermissionDao extends RootDao {
 
 	public void save(RoleAndPermission entity) {
 		// TODO Auto-generated method stub

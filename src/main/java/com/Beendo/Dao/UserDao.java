@@ -6,26 +6,34 @@ import javax.transaction.HeuristicMixedException;
 import javax.transaction.HeuristicRollbackException;
 import javax.transaction.RollbackException;
 import javax.transaction.SystemException;
+import javax.transaction.Transactional;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.Beendo.Entities.User;
 import com.Beendo.HibernateUtils.HibernateUtil;
 
-public class UserDao extends RootDao implements UserDaoInterface<User, String> {
 
+@Repository
+public class UserDao implements UserDaoInterface {
+
+	@Autowired
+    private SessionFactory sessionFactory;
 	
 	public void save(User entity) {
 		// TODO Auto-generated method stub
-		this.currentSession.save(entity);
+		this.sessionFactory.getCurrentSession().save(entity);
+//		this.currentSession.save(entity);
 	}
 
 	public void update(User entity) {
 		// TODO Auto-generated method stub
-		this.currentSession.update(entity);
+//		this.currentSession.update(entity);
 	}
 
 	public User findById(String id) {
@@ -48,11 +56,13 @@ public class UserDao extends RootDao implements UserDaoInterface<User, String> {
 		
 	}
 
+	@Transactional
 	public User isUserValid(String email, String password){
 		
 		User user = null;
 	
-		Query query = this.currentSession.createQuery("FROM User U where U.email = :email AND U.password = :password");
+		Session session = this.sessionFactory.getCurrentSession();
+		Query query = session.createQuery("FROM User U where U.email = :email AND U.password = :password");
 		query.setParameter("email", email);
 		query.setParameter("password", password);
 		

@@ -6,7 +6,9 @@ import java.util.Map;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +28,8 @@ import com.Beendo.Service.UserService;
 @Controller
 public class LoginController {
 
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping(value = "/login",method = RequestMethod.GET)
 	public ModelAndView index(){
@@ -43,7 +47,7 @@ public class LoginController {
 		String password = sender.get("password");
 		
 		
-		UserService userService = new UserService();
+//		UserService userService = new UserService();
 		User user = userService.isUserValid(email, password);
 //		User user = User.isUserValid(email, password);
 		SharedData.getSharedInstace().currentUser = user;
@@ -61,12 +65,12 @@ public class LoginController {
 		String hql = "FROM User";
 //		String hql = "SELECT U.name FROM User U where U.name = :name";
 		
-		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-		Session session = sessionFactory.openSession();
+//		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+//		Session session = sessionFactory.openSession();
 		
-		Query query = (Query)session.createQuery(hql);
+//		Query query = (Query)session.createQuery(hql);
 //		query.setParameter("name", "pk");
-		List results = query.list();
+//		List results = query.list();
 	}
 	
 	void addUser(){
