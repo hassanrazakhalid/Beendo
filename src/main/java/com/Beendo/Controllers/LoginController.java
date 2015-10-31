@@ -16,13 +16,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.Beendo.Constants.*;
+import com.Beendo.HibernateUtils.*;
 import com.Beendo.Entities.Practise;
 import com.Beendo.Entities.RoleAndPermission;
 import com.Beendo.Entities.User;
-import com.Beendo.Global.SharedData;
+import com.Beendo.HibernateUtils.Constants;
 //import com.Beendo.HibernateUtils.HibernateUtil;
 import com.Beendo.HibernateUtils.HibernateUtil;
+import com.Beendo.HibernateUtils.SharedData;
 import com.Beendo.Service.UserService;
  
 @Controller

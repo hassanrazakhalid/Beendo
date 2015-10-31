@@ -1,4 +1,4 @@
-package com.Beendo.Constants;
+package com.Beendo.HibernateUtils;
 
 public class Constants {
 

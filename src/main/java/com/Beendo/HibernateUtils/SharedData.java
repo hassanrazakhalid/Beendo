@@ -1,4 +1,4 @@
-package com.Beendo.Global;
+package com.Beendo.HibernateUtils;
 
 import com.Beendo.Entities.User;
 

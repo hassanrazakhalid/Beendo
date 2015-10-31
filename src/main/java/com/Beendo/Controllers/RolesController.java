@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.Beendo.Constants.Constants;
 import com.Beendo.Entities.RoleAndPermission;
+import com.Beendo.HibernateUtils.Constants;
 import com.Beendo.Service.RoleAndPermissionService;
 
 @Controller

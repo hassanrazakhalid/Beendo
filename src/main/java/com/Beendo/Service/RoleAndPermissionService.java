@@ -8,12 +8,12 @@ import javax.persistence.Id;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import com.Beendo.Constants.Constants;
 import com.Beendo.Dao.RoleAndPermissionDao;
 import com.Beendo.Dao.UserDao;
 import com.Beendo.Dao.UserDaoInterface;
 import com.Beendo.Entities.RoleAndPermission;
 import com.Beendo.Entities.User;
+import com.Beendo.HibernateUtils.Constants;
 import com.Beendo.HibernateUtils.HibernateUtil;
 
 public class RoleAndPermissionService {
