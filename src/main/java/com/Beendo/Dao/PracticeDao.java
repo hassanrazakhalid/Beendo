@@ -2,14 +2,26 @@ package com.Beendo.Dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.Beendo.Entities.Practise;
 import com.Beendo.Entities.User;
 
-public class PracticeDao extends RootDao {
+@Repository
+public class PracticeDao implements IPractice {
 
+	
+	@Autowired
+    private SessionFactory sessionFactory;
+	
+	@Transactional
 	public void save(Practise entity) {
-		// TODO Auto-generated method stub
-		this.currentSession.save(entity);
+		
+		sessionFactory.getCurrentSession().save(entity);
 	}
 
 	public void update(Practise entity) {
@@ -17,23 +29,23 @@ public class PracticeDao extends RootDao {
 		
 	}
 
-	public Practise findById(String id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public void delete(Practise entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	@Transactional
 	public List<Practise> findAll() {
-		return this.currentSession.createQuery("FROM Practise").list();
+		return sessionFactory.getCurrentSession().createQuery("From Practise").list();
 	}
 
 	public void deleteAll() {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
+	
 
 }

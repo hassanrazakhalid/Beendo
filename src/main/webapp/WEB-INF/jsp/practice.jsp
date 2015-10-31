@@ -1,9 +1,50 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <html>
 
+<head>
+
+<script type="text/javascript">
+
+/* $(document).ready(function() {
+
+	  $('#btnAdd').submit(function() {
+		  
+		  crunchifyAjax();
+	  });
+}); */
+
+/* function savePractice() {
+	
+	 var name = $('#txtPracticeName').val();  
+	
+    $.ajax({
+    	contentType : 'application/json; charset=utf-8',
+    	type : "post",  
+    	url : 'submitFormPractice.html',
+  
+        data : "name=" + name, 
+        dataType : 'json',
+        data : JSON.stringify(data),
+        success : function(data) {
+            $('#result').html(data);   
+            alert(data.name);
+        },
+        error : function(e) {  
+            alert('Error: ' + e);   
+           }  
+    });
+} */
+	 
+</script>
+
+
+</head>
+
 <body>
+
+<!-- <div id="result"></div> -->
  
 <div class="container">
   <h2>Practice Info</h2>  
@@ -44,7 +85,7 @@
  
  <!-- Modal -->
  
- <form action="http://localhost:8080/Beendo/addPractice" method="post">
+ <form:form method="POST" modelAttribute="user" action="http://localhost:8080/Beendo/savePractice">
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -55,7 +96,7 @@
           <h4 class="modal-title">Add Practice</h4>
         </div>
         <div class="modal-body">
-          <input type="text" name="txtPracticeName" class="form-control" placeholder="Enter Practice Name" required autofocus>
+        	<form:input path="name" class="form-control" placeholder="Enter Practice Name" />
         </div>
         
         <div class="modal-footer">
@@ -65,8 +106,10 @@
       
     </div>
   </div>
-</form>  
+ </form:form>  
+
   
 </div>
 
+</body>
 </html>
