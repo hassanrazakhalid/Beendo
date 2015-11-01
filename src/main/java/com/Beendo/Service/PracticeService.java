@@ -28,13 +28,13 @@ public class PracticeService {
 	 
 	public List<Practise> GetAll()
 	{
-//		practiceDao.openSession();
-//		practiceDao.openTransaction();
-//		
 		List<Practise> list = practiceDao.findAll();
-//		
-//		practiceDao.closeSession();
 		return list;
+	}
+	
+	public void Delete(int id)
+	{
+		practiceDao.delete(id);
 	}
 	
 }

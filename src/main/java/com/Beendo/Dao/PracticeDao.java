@@ -34,6 +34,14 @@ public class PracticeDao implements IPractice {
 		
 	}
 
+	
+	@Transactional
+	public void delete(int id) {
+		
+		Practise tmp = (Practise) sessionFactory.getCurrentSession().load(Practise.class, id);
+		sessionFactory.getCurrentSession().delete(tmp);		
+	}
+
 	@Transactional
 	public List<Practise> findAll() {
 		return sessionFactory.getCurrentSession().createQuery("From Practise").list();
