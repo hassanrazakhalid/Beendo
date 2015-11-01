@@ -24,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.Beendo.Entities.Practise;
 import com.Beendo.Entities.User;
+import com.Beendo.HibernateUtils.Constants;
 import com.Beendo.Service.PracticeService;
 
 @Controller
@@ -32,10 +33,17 @@ public class PracticeController {
 	@Autowired
 	PracticeService practiceService;
 	
+	private void addBaseUrl(ModelAndView mv){
+		
+		String url = Constants.URL+ ":"+ Constants.PORT + "/" + Constants.ROOT + "/";
+		mv.addObject("BaseURL", url);
+	}
+	
 	@RequestMapping(value = "/practice", method = RequestMethod.GET)
 	public ModelAndView Practice(){
 		
 		ModelAndView mv = new ModelAndView("practice");
+		addBaseUrl(mv);
 		
 		try
 		{
@@ -73,10 +81,28 @@ public class PracticeController {
 	
 	
 	@RequestMapping(value = "/practice/delete/{id}")
-    public String edit(Model model, @PathVariable int id) {
+    public String delete(Model model, @PathVariable int id) {
 
 		practiceService.Delete(id);
 		
+        return "redirect:/practice";
+    }	
+	
+	
+	@RequestMapping(value = "/practice/edit")
+	public String edit(@Valid @ModelAttribute("user")User user, 
+		      BindingResult result, ModelMap model) {
+		        if (result.hasErrors()) {
+		            return "error";
+		        }
+
+		Practise pr = new Practise();
+		pr.setId(user.getUser_id());
+		pr.setName(user.getName());
+		        
+		practiceService.Update(pr);
+		
+		//String nam = user.getName()
         return "redirect:/practice";
     }	
 	

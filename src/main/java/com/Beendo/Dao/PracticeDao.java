@@ -24,8 +24,16 @@ public class PracticeDao implements IPractice {
 		sessionFactory.getCurrentSession().save(entity);
 	}
 
+	@Transactional
 	public void update(Practise entity) {
-		// TODO Auto-generated method stub
+		sessionFactory.getCurrentSession().update(entity);
+		
+	}
+	
+	@Transactional
+	public void update(int id) {
+		Practise tmp = (Practise) sessionFactory.getCurrentSession().load(Practise.class, id);
+		sessionFactory.getCurrentSession().update(tmp);	
 		
 	}
 

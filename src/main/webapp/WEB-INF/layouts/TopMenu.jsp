@@ -18,20 +18,20 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="http://localhost:8080/Beendo/home">Bendoo</a>
+      <a class="navbar-brand" href="http://162.144.198.59:8080/Beendo/home">Bendoo</a>
     </div>
     <div>
      
       <ul class="nav navbar-nav">
-        <li class="active"><a href="http://localhost:8080/Beendo/home">Home</a></li>
+        <li class="active"><a href="http://162.144.198.59:8080/Beendo/home">Home</a></li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">PMS <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="http://localhost:8080/Beendo/physician">Physician</a></li>
-            <li><a href="http://localhost:8080/Beendo/insurance">Insurances</a></li>
-            <li><a href="http://localhost:8080/Beendo/practice">Practices</a></li>
+            <li><a href="http://162.144.198.59:8080/Beendo/physician">Physician</a></li>
+            <li><a href="http://162.144.198.59:8080/Beendo/insurance">Insurances</a></li>
+            <li><a href="http://162.144.198.59:8080/Beendo/practice">Practices</a></li>
             <li role="separator" class="divider" />
-            <li><a href="http://localhost:8080/Beendo/users">User</a></li>
-            <li><a href="http://localhost:8080/Beendo/roles">Role & Permission</a></li>
+            <li><a href="http://162.144.198.59:8080/Beendo/users">User</a></li>
+            <li><a href="http://162.144.198.59:8080/Beendo/roles">Role & Permission</a></li>
           </ul>
         </li>
 

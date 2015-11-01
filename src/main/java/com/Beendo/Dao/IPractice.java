@@ -14,6 +14,8 @@ public interface IPractice {
 	
 	public void update(Practise entity);
 	
+	public void update(int id);
+	
 //	public T findById(Id id);
 	
 	public void delete(Practise entity);

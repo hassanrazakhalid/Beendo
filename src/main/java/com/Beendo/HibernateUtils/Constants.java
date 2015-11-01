@@ -2,7 +2,7 @@ package com.Beendo.HibernateUtils;
 
 public class Constants {
 
-	public static String URL = "http://localhost";
+	public static String URL = "http://162.144.198.59";
 	public static String PORT = "8080";
 	public static String ROOT = "Beendo";
 	

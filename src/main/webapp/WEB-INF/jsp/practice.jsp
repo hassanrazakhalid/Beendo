@@ -2,6 +2,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+
+
 <html>
 
 <head>
@@ -38,6 +40,25 @@
     });
 } */
 	 
+function EditSetting(id, name)
+{
+	 document.getElementById("txtName").value = name; 
+	 /* document.getElementById("editHeader").value = "Edit Practice"; */
+	 var address = "${BaseURL}" + "practice/edit";
+	 document.getElementById("frmModel").action = address;
+	 //document.getElementById("frmModel").action = "http://localhost:8080/Beendo/practice/edit"; 
+     document.getElementById("fieldId").value = id; 
+}
+
+function AddSetting()
+{
+	document.getElementById("txtName").value = ""; 
+	document.getElementById("editHeader").value = "Add Practice";
+	var address = "${BaseURL}" + "savePractice";
+	 document.getElementById("frmModel").action = address;
+	//document.getElementById("frmModel").action = "http://localhost:8080/Beendo/savePractice";
+}
+	 
 </script>
 
 
@@ -52,7 +73,7 @@
   <br /> 
   
   <div>
-  	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add Practice</button>
+  	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="AddSetting()">Add Practice</button>
   </div>
   
   <br /> 
@@ -73,8 +94,8 @@
       <c:forEach items="${Practices}" var="obj">
       	<tr>
         	<td>${obj.name}</td>
-        	<td data-toggle="modal" data-target="#editModal"><span class="glyphicon glyphicon-pencil"></td>
-        	<%-- <td data-toggle="modal" data-target="#editModal">
+        	<td data-toggle="modal" data-target="#myModal" onclick="EditSetting(${obj.id}, '${obj.name}')"><span class="glyphicon glyphicon-pencil"></td>
+        	<%-- <td data-toggle="modal" data-target="#myModal">
 		      	<a href="<spring:url value="/practice/edit/${obj.id}"/>">
 		      		<span class="glyphicon glyphicon-pencil">
 		      	</a>
@@ -84,6 +105,7 @@
 		      		<span class="glyphicon glyphicon-remove">
 		      	</a>
       		</td>
+      		
       	</tr>     
 	  </c:forEach>
       
@@ -95,7 +117,7 @@
  
  <!-- Add Modal -->
  
- <form:form method="POST" modelAttribute="user" action="http://localhost:8080/Beendo/savePractice">
+ <%-- <form:form method="POST" modelAttribute="user">
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -107,6 +129,7 @@
         </div>
         <div class="modal-body">
         	<form:input path="name" class="form-control" placeholder="Enter Practice Name" />
+        	<form:hidden id="fieldId" path="user_id"/>
         </div>
         
         <div class="modal-footer">
@@ -116,27 +139,28 @@
       
     </div>
   </div>
- </form:form>  
+ </form:form> --%> 
  
  
  <!-- Edit Modal -->
  
- <form:form method="POST" modelAttribute="user" action="http://localhost:8080/Beendo/practice/edit">
-  <div class="modal fade" id="editModal" role="dialog">
+ <form:form id="frmModel" method="POST" modelAttribute="user">
+  <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Edit Practice</h4>
+          <h4 class="modal-title" id="editHeader">Practice</h4>
         </div>
         <div class="modal-body">
-        	<form:input path="name" value="${user.name}" class="form-control" placeholder="Enter Practice Name" />
+        	<form:input id="txtName" path="name" class="form-control" placeholder="Enter Practice Name" />
+        	<form:hidden id="fieldId" path="user_id"/>
         </div>
         
         <div class="modal-footer">
-          <button class="btn btn-default" type="submit">Edit</button>
+          <button class="btn btn-default" type="submit">Save</button>
         </div>
       </div>
       

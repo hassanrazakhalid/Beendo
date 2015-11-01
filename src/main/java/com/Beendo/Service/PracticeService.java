@@ -37,4 +37,14 @@ public class PracticeService {
 		practiceDao.delete(id);
 	}
 	
+	public void Update(int id)
+	{
+		practiceDao.update(id);
+	}
+	
+	public void Update(Practise entity)
+	{
+		practiceDao.update(entity);
+	}
+	
 }
