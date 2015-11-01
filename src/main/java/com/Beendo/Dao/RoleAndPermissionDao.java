@@ -1,5 +1,6 @@
 package com.Beendo.Dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.transaction.HeuristicMixedException;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Repository;
 
 import com.Beendo.Entities.Practise;
 import com.Beendo.Entities.RoleAndPermission;
+import com.Beendo.Entities.User;
 import com.Beendo.HibernateUtils.HibernateUtil;
 
 @Repository
@@ -63,9 +65,22 @@ public class RoleAndPermissionDao implements IRolesAndPermission {
 	@Transactional
 	public void deleteById(int id) {
 		
-		RoleAndPermission tmp = (RoleAndPermission) sessionFactory.getCurrentSession().load(Practise.class, id);
+		RoleAndPermission tmp = (RoleAndPermission) sessionFactory.getCurrentSession().load(RoleAndPermission.class, id);
 		sessionFactory.getCurrentSession().delete(tmp);		
 	}
-	
 
+
+	@Transactional
+	public RoleAndPermission getRoleById(int id) {
+		// TODO Auto-generated method stub
+		RoleAndPermission role = null;
+		Query query = sessionFactory.getCurrentSession().createQuery("FROM RoleAndPermission r where r.role_Id = :id ");
+		query.setParameter("id", id);
+		
+		List<RoleAndPermission> result = query.list();
+		if(!result.isEmpty())
+			role = result.get(0);
+		
+		return role; 
+	}
 }

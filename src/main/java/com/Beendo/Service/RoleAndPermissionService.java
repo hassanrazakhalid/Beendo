@@ -32,9 +32,12 @@ public class RoleAndPermissionService {
 		roleAndPermission.save(entity);
 	}
 
-	public void update(RoleAndPermission entity) {
+	public void update(int id, HashMap<String, String>sender) {
 		// TODO Auto-generated method stub
-	roleAndPermission.update(entity);
+		
+	RoleAndPermission role = roleAndPermission.getRoleById(id);
+		updateObjectWithData(role, sender);
+	roleAndPermission.update(role);
 
 	}
 
@@ -67,9 +70,14 @@ public class RoleAndPermissionService {
 		this.roleAndPermission.deleteById(id);
 	}
 	
-	public static RoleAndPermission getObject(HashMap<String, String>hashMap){
+	public RoleAndPermission getObject(HashMap<String, String>hashMap){
 		
 		RoleAndPermission roleAndPermis = new RoleAndPermission();
+		updateObjectWithData(roleAndPermis,hashMap);
+		return roleAndPermis;
+	}
+	
+	public void updateObjectWithData(RoleAndPermission roleAndPermis,  HashMap<String,String>hashMap){
 		
 		String createValue = hashMap.get(Constants._kCreate);
 		String deleteValue = hashMap.get(Constants._kDelete);
@@ -85,9 +93,7 @@ public class RoleAndPermissionService {
 		} catch (Exception e) {
 			
 			System.out.println(e.getMessage());
-			
 		}
-		return roleAndPermis;
+		
 	}
-
 }

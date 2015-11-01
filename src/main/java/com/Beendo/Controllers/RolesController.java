@@ -37,15 +37,16 @@ public class RolesController {
 	}
 	
 	@RequestMapping(value = "/roleSubmitted", method = RequestMethod.POST)
-	public ModelAndView rolesSubmitted(@RequestParam HashMap<String, String>hashMap){
+	public String rolesSubmitted(@RequestParam HashMap<String, String>hashMap){
 		
-		ModelAndView mv = new ModelAndView("roles");
+//		ModelAndView mv = new ModelAndView("roles");
 		
-		RoleAndPermission role = RoleAndPermissionService.getObject(hashMap);
+		RoleAndPermission role = roleAndPer.getObject(hashMap);
 		roleAndPer.save(role);
 		
-		addBaseUrl(mv);
-		return mv;
+//		addBaseUrl(mv);
+		return "redirect:/roles";
+//		return mv;
 	}
 	
 	private void addBaseUrl(ModelAndView mv){
@@ -55,10 +56,19 @@ public class RolesController {
 	}
 
 	@RequestMapping(value = "/roles/delete/{id}")
-    public String delete(Model model, @PathVariable int id) {
+    public String delete(@PathVariable int id) {
 
 		roleAndPer.deleteById(id);
 		
         return "redirect:/roles";
-    }	
+    }
+	
+	@RequestMapping(value = "/roles/update/{id}")
+    public String update(@PathVariable int id,@RequestParam HashMap<String, String>sender) {
+
+		roleAndPer.update(id, sender);
+//		roleAndPer.deleteById(id);
+		
+        return "redirect:/roles";
+    }
 }

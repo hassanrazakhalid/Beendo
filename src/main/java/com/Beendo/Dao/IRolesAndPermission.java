@@ -21,6 +21,8 @@ public interface IRolesAndPermission {
 	
 	public void deleteById(int id);
 	
+	public RoleAndPermission getRoleById(int id);
+	
 	public List<RoleAndPermission> findAll();
 	
 	public void deleteAll();
