@@ -19,7 +19,7 @@ public interface IRolesAndPermission {
 	
 	public void delete(RoleAndPermission entity);
 	
-	public void delete(int id);
+	public void deleteById(int id);
 	
 	public List<RoleAndPermission> findAll();
 	

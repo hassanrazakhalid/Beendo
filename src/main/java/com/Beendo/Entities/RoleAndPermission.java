@@ -54,10 +54,14 @@ public class RoleAndPermission {
 //	}
 		//------
 	
- 
-	
 	public Boolean getCreate() {
 		return create;
+	}
+	public Integer getRole_Id() {
+		return role_Id;
+	}
+	public void setRole_Id(Integer role_Id) {
+		this.role_Id = role_Id;
 	}
 	public void setCreate(Boolean create) {
 		this.create = create;

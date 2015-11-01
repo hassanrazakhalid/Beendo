@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.persistence.Id;
+import javax.transaction.Transactional;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -14,6 +15,7 @@ import com.Beendo.Dao.IRolesAndPermission;
 import com.Beendo.Dao.RoleAndPermissionDao;
 import com.Beendo.Dao.UserDao;
 import com.Beendo.Dao.UserDaoInterface;
+import com.Beendo.Entities.Practise;
 import com.Beendo.Entities.RoleAndPermission;
 import com.Beendo.Entities.User;
 import com.Beendo.HibernateUtils.Constants;
@@ -24,12 +26,6 @@ public class RoleAndPermissionService {
 
 	@Autowired
 	private IRolesAndPermission roleAndPermission;
-	
-	public RoleAndPermissionService(){
-		
-		roleAndPermission = new RoleAndPermissionDao();
-		
-	}
 
 	public void save(RoleAndPermission entity) {
 		// TODO Auto-generated method stub
@@ -51,6 +47,8 @@ public class RoleAndPermissionService {
 		// TODO Auto-generated method stub
 		roleAndPermission.delete(entity);
 	}
+	
+	
 
 	public List<RoleAndPermission> findAll() {
 		
@@ -62,6 +60,11 @@ public class RoleAndPermissionService {
 	public void deleteAll() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void deleteById(int id){
+		
+		this.roleAndPermission.deleteById(id);
 	}
 	
 	public static RoleAndPermission getObject(HashMap<String, String>hashMap){

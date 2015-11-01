@@ -23,21 +23,25 @@ import com.Beendo.HibernateUtils.HibernateUtil;
 public class RoleAndPermissionDao implements IRolesAndPermission {
 
 	@Autowired
-	private SessionFactory sessionFactry;
+	private SessionFactory sessionFactory;
 
+	@Transactional
 	public void save(RoleAndPermission entity) {
 		// TODO Auto-generated method stub
-		this.sessionFactry.getCurrentSession().save(entity);
+		this.sessionFactory.getCurrentSession().save(entity);
 	}
 
+	
+	@Transactional
 	public void update(RoleAndPermission entity) {
 		// TODO Auto-generated method stub
-		this.sessionFactry.getCurrentSession().update(entity);
+		this.sessionFactory.getCurrentSession().update(entity);
 	}
 
+	@Transactional
 	public void delete(RoleAndPermission entity) {
 		// TODO Auto-generated method stub
-		this.sessionFactry.getCurrentSession().delete(entity);
+		this.sessionFactory.getCurrentSession().delete(entity);
 	}
 
 	public void delete(int id) {
@@ -45,14 +49,22 @@ public class RoleAndPermissionDao implements IRolesAndPermission {
 		
 	}
 
+	@Transactional
 	public List<RoleAndPermission> findAll() {
 		// TODO Auto-generated method stub
-		 return this.sessionFactry.getCurrentSession().createQuery("FROM RoleAndPermission").list();
+		 return this.sessionFactory.getCurrentSession().createQuery("FROM RoleAndPermission").list();
 	}
 
 	public void deleteAll() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Transactional
+	public void deleteById(int id) {
+		
+		RoleAndPermission tmp = (RoleAndPermission) sessionFactory.getCurrentSession().load(Practise.class, id);
+		sessionFactory.getCurrentSession().delete(tmp);		
 	}
 	
 

@@ -61,6 +61,9 @@
 										<span class="glyphicon glyphicon-remove"> </span>
 									</c:otherwise>
 								</c:choose></td>
+							<td><a
+								href="<spring:url value="/roles/delete/${role.role_Id}" />"> <span
+									class="glyphicon glyphicon-remove"> </span></a></td>
 
 							<%-- 							<td>${role.create}</td>
 							<td>${role.update}</td>
@@ -69,7 +72,7 @@
 						</tr>
 					</c:forEach>
 
-<!-- 					<tr>
+					<!-- 					<tr>
 						<td>Admin</td>
 						<td><span class="glyphicon glyphicon-ok"> </span></td>
 						<td><span class="glyphicon glyphicon-ok"> </span></td>
@@ -94,7 +97,7 @@
 
 		<!-- Modal -->
 		<form action="${BaseURL}roleSubmitted.html" method="post">
-			<h1>${BaseURL}roleSubmitted.html</h1>
+			<%-- <h1>${BaseURL}roleSubmitted.html</h1> --%>
 			<div class="modal fade" id="myModal" role="dialog">
 				<div class="modal-dialog">
 

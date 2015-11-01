@@ -5,7 +5,10 @@ import java.util.List;
 
 import javax.swing.event.RowSorterListener;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,7 +21,8 @@ import com.Beendo.Service.RoleAndPermissionService;
 @Controller
 public class RolesController {
 
-	private RoleAndPermissionService roleAndPer = new RoleAndPermissionService();
+	@Autowired
+	private RoleAndPermissionService roleAndPer;
 	
 	@RequestMapping(value = "/roles", method = RequestMethod.GET)
 	public ModelAndView Roles(@RequestParam HashMap<String, String>hasMap){
@@ -50,5 +54,11 @@ public class RolesController {
 		mv.addObject("BaseURL", url);
 	}
 
-	
+	@RequestMapping(value = "/roles/delete/{id}")
+    public String delete(Model model, @PathVariable int id) {
+
+		roleAndPer.deleteById(id);
+		
+        return "redirect:/roles";
+    }	
 }
