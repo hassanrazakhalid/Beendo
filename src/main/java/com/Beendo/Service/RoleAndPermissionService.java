@@ -7,7 +7,10 @@ import javax.persistence.Id;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import com.Beendo.Dao.IRolesAndPermission;
 import com.Beendo.Dao.RoleAndPermissionDao;
 import com.Beendo.Dao.UserDao;
 import com.Beendo.Dao.UserDaoInterface;
@@ -16,9 +19,11 @@ import com.Beendo.Entities.User;
 import com.Beendo.HibernateUtils.Constants;
 import com.Beendo.HibernateUtils.HibernateUtil;
 
+@Service
 public class RoleAndPermissionService {
 
-	private static RoleAndPermissionDao roleAndPermission;
+	@Autowired
+	private IRolesAndPermission roleAndPermission;
 	
 	public RoleAndPermissionService(){
 		
@@ -28,22 +33,13 @@ public class RoleAndPermissionService {
 
 	public void save(RoleAndPermission entity) {
 		// TODO Auto-generated method stub
-		roleAndPermission.openSession();
-		roleAndPermission.openTransaction();
-		
 		roleAndPermission.save(entity);
-		
-		roleAndPermission.closeSession();
 	}
 
 	public void update(RoleAndPermission entity) {
 		// TODO Auto-generated method stub
-		roleAndPermission.openSession();
-		roleAndPermission.openTransaction();
-		
-		roleAndPermission.update(entity);
-		
-		roleAndPermission.closeSession();
+	roleAndPermission.update(entity);
+
 	}
 
 	public RoleAndPermission findById(String id) {
@@ -53,25 +49,13 @@ public class RoleAndPermissionService {
 
 	public void delete(RoleAndPermission entity) {
 		// TODO Auto-generated method stub
-		roleAndPermission.openSession();
-		roleAndPermission.openTransaction();
-		
 		roleAndPermission.delete(entity);
-		
-		roleAndPermission.closeSession();
 	}
 
 	public List<RoleAndPermission> findAll() {
 		
 		List<RoleAndPermission>result = null;
-		
-		roleAndPermission.openSession();
-		roleAndPermission.openTransaction();
-		
 		result = roleAndPermission.findAll();
-		
-		roleAndPermission.closeSession();
-		
 		return result;
 	}
 
