@@ -9,22 +9,8 @@ import com.Beendo.Entities.Practise;
 import com.Beendo.Entities.RoleAndPermission;
 import com.Beendo.Entities.User;
 
-public interface IRolesAndPermission {
-
-	public void save(RoleAndPermission entity);
-	
-	public void update(RoleAndPermission entity);
-	
-//	public T findById(Id id);
-	
-	public void delete(RoleAndPermission entity);
+public interface IRolesAndPermission extends ICRUD<RoleAndPermission, Integer> {
 	
 	public void deleteById(int id);
-	
 	public RoleAndPermission getRoleById(int id);
-	
-	public List<RoleAndPermission> findAll();
-	
-	public void deleteAll();
-
 }

@@ -28,38 +28,9 @@ public class RoleAndPermissionDao implements IRolesAndPermission {
 	private SessionFactory sessionFactory;
 
 	@Transactional
-	public void save(RoleAndPermission entity) {
-		// TODO Auto-generated method stub
-		this.sessionFactory.getCurrentSession().save(entity);
-	}
-
-	
-	@Transactional
-	public void update(RoleAndPermission entity) {
-		// TODO Auto-generated method stub
-		this.sessionFactory.getCurrentSession().update(entity);
-	}
-
-	@Transactional
-	public void delete(RoleAndPermission entity) {
-		// TODO Auto-generated method stub
-		this.sessionFactory.getCurrentSession().delete(entity);
-	}
-
-	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Transactional
 	public List<RoleAndPermission> findAll() {
 		// TODO Auto-generated method stub
 		 return this.sessionFactory.getCurrentSession().createQuery("FROM RoleAndPermission").list();
-	}
-
-	public void deleteAll() {
-		// TODO Auto-generated method stub
-		
 	}
 	
 	@Transactional
@@ -82,5 +53,33 @@ public class RoleAndPermissionDao implements IRolesAndPermission {
 			role = result.get(0);
 		
 		return role; 
+	}
+
+	@Transactional
+	public void save(RoleAndPermission entity) {
+		// TODO Auto-generated method stub
+		this.sessionFactory.getCurrentSession().save(entity);
+	}
+
+	@Transactional
+	public void update(RoleAndPermission entity) {
+		// TODO Auto-generated method stub
+		this.sessionFactory.getCurrentSession().update(entity);
+	}
+
+	public RoleAndPermission findById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Transactional
+	public void delete(RoleAndPermission entity) {
+		// TODO Auto-generated method stub
+		this.sessionFactory.getCurrentSession().delete(entity);
+	}
+
+	public void deleteAll() {
+		// TODO Auto-generated method stub
+		
 	}
 }

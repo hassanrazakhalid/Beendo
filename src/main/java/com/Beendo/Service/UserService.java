@@ -25,11 +25,11 @@ public class UserService {
 //	private UserDao userDao;
 //	private static RoleAndPermissionDao roleAndPermissionDao;
 	
-//	public UserService(){
-//		
-////		userDao = new UserDao();	
-//		roleAndPermissionDao = new RoleAndPermissionDao();
-//	}
+	public UserService(){
+
+		System.out.println("");
+
+	}
 	
 	public void save(User entity){
 		
@@ -66,7 +66,6 @@ public class UserService {
 		
 	}
 	
-	@Transactional
 	public User isUserValid(String email, String password){
 		
 //		System.out.println("Testing");

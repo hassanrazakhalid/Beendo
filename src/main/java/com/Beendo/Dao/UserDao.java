@@ -24,19 +24,36 @@ public class UserDao implements UserDaoInterface {
 
 	@Autowired
     private SessionFactory sessionFactory;
+
+	@Transactional
+	public User isUserValid(String email, String password){
+		
+		User user = null;
 	
+		Session session = this.sessionFactory.getCurrentSession();
+		Query query = session.createQuery("FROM User U where U.email = :email AND U.password = :password");
+		query.setParameter("email", email);
+		query.setParameter("password", password);
+		
+		List<User> result = query.list();
+		if(!result.isEmpty())
+			user = result.get(0);
+		
+		return user;	
+	}
+
+	@Transactional
 	public void save(User entity) {
 		// TODO Auto-generated method stub
 		this.sessionFactory.getCurrentSession().save(entity);
-//		this.currentSession.save(entity);
 	}
 
 	public void update(User entity) {
 		// TODO Auto-generated method stub
-//		this.currentSession.update(entity);
+		
 	}
 
-	public User findById(String id) {
+	public User findById(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -54,22 +71,5 @@ public class UserDao implements UserDaoInterface {
 	public void deleteAll() {
 		// TODO Auto-generated method stub
 		
-	}
-
-	@Transactional
-	public User isUserValid(String email, String password){
-		
-		User user = null;
-	
-		Session session = this.sessionFactory.getCurrentSession();
-		Query query = session.createQuery("FROM User U where U.email = :email AND U.password = :password");
-		query.setParameter("email", email);
-		query.setParameter("password", password);
-		
-		List<User> result = query.list();
-		if(!result.isEmpty())
-			user = result.get(0);
-		
-		return user;	
 	}
 }

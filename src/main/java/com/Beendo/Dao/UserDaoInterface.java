@@ -7,19 +7,7 @@ import org.hibernate.Session;
 
 import com.Beendo.Entities.User;
 
-public interface UserDaoInterface {
-
-	public void save(User entity);
-	
-	public void update(User entity);
-	
-//	public T findById(Id id);
-	
-	public void delete(User entity);
-	
-	public List<User> findAll();
-	
-	public void deleteAll();
+public interface UserDaoInterface extends ICRUD <User, Integer> {
 
 	public User isUserValid(String email, String password);
 }
