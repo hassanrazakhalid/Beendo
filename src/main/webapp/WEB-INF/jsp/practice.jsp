@@ -43,7 +43,7 @@
 function EditSetting(id, name)
 {
 	 document.getElementById("txtName").value = name; 
-	 /* document.getElementById("editHeader").value = "Edit Practice"; */
+	 document.getElementById("editHeader").innerHTML = "Edit Practice"; 
 	 var address = "${BaseURL}" + "practice/edit";
 	 document.getElementById("frmModel").action = address;
 	 //document.getElementById("frmModel").action = "http://localhost:8080/Beendo/practice/edit"; 
@@ -53,7 +53,7 @@ function EditSetting(id, name)
 function AddSetting()
 {
 	document.getElementById("txtName").value = ""; 
-	document.getElementById("editHeader").value = "Add Practice";
+	document.getElementById("editHeader").innerHTML = "Add Practice";
 	var address = "${BaseURL}" + "savePractice";
 	 document.getElementById("frmModel").action = address;
 	//document.getElementById("frmModel").action = "http://localhost:8080/Beendo/savePractice";
@@ -94,7 +94,9 @@ function AddSetting()
       <c:forEach items="${Practices}" var="obj">
       	<tr>
         	<td>${obj.name}</td>
-        	<td data-toggle="modal" data-target="#myModal" onclick="EditSetting(${obj.id}, '${obj.name}')"><span class="glyphicon glyphicon-pencil"></td>
+        	<td data-toggle="modal" data-target="#myModal" onclick="EditSetting(${obj.id}, '${obj.name}')" onMouseOver="this.style.cursor='pointer'">
+        	  <a><span class="glyphicon glyphicon-pencil"></a>
+        	</td>
         	<%-- <td data-toggle="modal" data-target="#myModal">
 		      	<a href="<spring:url value="/practice/edit/${obj.id}"/>">
 		      		<span class="glyphicon glyphicon-pencil">
@@ -152,7 +154,7 @@ function AddSetting()
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title" id="editHeader">Practice</h4>
+          <h4 class="modal-title" id="editHeader"></h4>
         </div>
         <div class="modal-body">
         	<form:input id="txtName" path="name" class="form-control" placeholder="Enter Practice Name" />

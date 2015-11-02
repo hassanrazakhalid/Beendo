@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -18,20 +19,20 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="http://162.144.198.59:8080/Beendo/home">Bendoo</a>
+      <a class="navbar-brand" href="<spring:url value="/home"/>">Bendoo</a>
     </div>
     <div>
      
       <ul class="nav navbar-nav">
-        <li class="active"><a href="http://162.144.198.59:8080/Beendo/home">Home</a></li>
+        <li class="active"><a href="<spring:url value="/home"/>">Home</a></li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">PMS <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="http://162.144.198.59:8080/Beendo/physician">Physician</a></li>
-            <li><a href="http://162.144.198.59:8080/Beendo/insurance">Insurances</a></li>
-            <li><a href="http://162.144.198.59:8080/Beendo/practice">Practices</a></li>
+            <li><a href="<spring:url value="/physician"/>">Physician</a></li>
+            <li><a href="<spring:url value="/insurance"/>">Insurances</a></li>
+            <li><a href="<spring:url value="/practice"/>">Practices</a></li>
             <li role="separator" class="divider" />
-            <li><a href="http://162.144.198.59:8080/Beendo/users">User</a></li>
-            <li><a href="http://162.144.198.59:8080/Beendo/roles">Role & Permission</a></li>
+            <li><a href="<spring:url value="/users"/>">User</a></li>
+            <li><a href="<spring:url value="/roles"/>">Role & Permission</a></li>
           </ul>
         </li>
 
