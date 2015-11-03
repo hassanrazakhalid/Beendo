@@ -6,6 +6,9 @@ import java.util.Map;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.impl.Log4jLoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -32,10 +35,13 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 	
+	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+	
 	@RequestMapping(value = "/login",method = RequestMethod.GET)
 	public ModelAndView index(){
 		
 //		return "index";
+		logger.info("Called Login Page");
 		ModelAndView mv = new ModelAndView("login");
 		addBaseUrl(mv);
 		return mv;
