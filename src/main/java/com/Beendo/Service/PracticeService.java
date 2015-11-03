@@ -7,14 +7,14 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.Beendo.Dao.IPractice;
+import com.Beendo.Dao.ICRUD;
 import com.Beendo.Entities.Practise;
 
 @Service
 public class PracticeService {
 
 	@Autowired
-	private IPractice practiceDao;
+	private ICRUD practiceDao;
 	
 	public void Save(Practise entity)
 	{

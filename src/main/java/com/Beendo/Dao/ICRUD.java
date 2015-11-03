@@ -14,9 +14,13 @@ public interface ICRUD <T , Id extends Serializable> {
 	
 	public void update(T entity);
 	
+	public void update(int id);
+	
 	public T findById(Id id);
 	
 	public void delete(T entity);
+	
+	public void delete(int id);
 	
 	public List<T> findAll();
 	

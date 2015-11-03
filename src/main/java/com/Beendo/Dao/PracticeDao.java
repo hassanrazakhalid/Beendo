@@ -9,19 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.Beendo.Entities.Practise;
-import com.Beendo.Entities.User;
 
 @Repository
-public class PracticeDao implements IPractice {
+public class PracticeDao implements ICRUD<Practise, Integer> {
 
 	
 	@Autowired
     private SessionFactory sessionFactory;
-	
+
 	@Transactional
 	public void save(Practise entity) {
-		
 		sessionFactory.getCurrentSession().save(entity);
+		
 	}
 
 	@Transactional
@@ -29,7 +28,7 @@ public class PracticeDao implements IPractice {
 		sessionFactory.getCurrentSession().update(entity);
 		
 	}
-	
+
 	@Transactional
 	public void update(int id) {
 		Practise tmp = (Practise) sessionFactory.getCurrentSession().load(Practise.class, id);
@@ -37,17 +36,21 @@ public class PracticeDao implements IPractice {
 		
 	}
 
+	public Practise findById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public void delete(Practise entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	
 	@Transactional
 	public void delete(int id) {
-		
 		Practise tmp = (Practise) sessionFactory.getCurrentSession().load(Practise.class, id);
-		sessionFactory.getCurrentSession().delete(tmp);		
+		sessionFactory.getCurrentSession().delete(tmp);	
+		
 	}
 
 	@Transactional
@@ -59,7 +62,8 @@ public class PracticeDao implements IPractice {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	
 
 
 	

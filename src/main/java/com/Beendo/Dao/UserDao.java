@@ -2,21 +2,17 @@ package com.Beendo.Dao;
 
 import java.util.List;
 
-import javax.transaction.HeuristicMixedException;
-import javax.transaction.HeuristicRollbackException;
-import javax.transaction.RollbackException;
-import javax.transaction.SystemException;
 import javax.transaction.Transactional;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.Beendo.Entities.Insurance;
+import com.Beendo.Entities.Physician;
 import com.Beendo.Entities.User;
-import com.Beendo.HibernateUtils.HibernateUtil;
 
 
 @Repository
@@ -48,9 +44,9 @@ public class UserDao implements UserDaoInterface {
 		this.sessionFactory.getCurrentSession().save(entity);
 	}
 
+	@Transactional
 	public void update(User entity) {
-		// TODO Auto-generated method stub
-		
+		this.sessionFactory.getCurrentSession().update(entity);
 	}
 
 	public User findById(Integer id) {
@@ -63,13 +59,25 @@ public class UserDao implements UserDaoInterface {
 		
 	}
 
+	@Transactional
 	public List<User> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return sessionFactory.getCurrentSession().createQuery("From User").list();
 	}
 
 	public void deleteAll() {
 		// TODO Auto-generated method stub
+		
+	}
+
+	public void update(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Transactional
+	public void delete(int id) {
+		User tmp = (User) sessionFactory.getCurrentSession().load(User.class, id);
+		sessionFactory.getCurrentSession().delete(tmp);
 		
 	}
 }

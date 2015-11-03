@@ -82,4 +82,14 @@ public class RoleAndPermissionDao implements IRolesAndPermission {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public void update(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
 }

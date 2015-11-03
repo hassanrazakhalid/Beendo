@@ -33,18 +33,13 @@ public class UserService {
 	
 	public void save(User entity){
 		
-//		userDao.openSession();
-//		userDao.openTransaction();
-		
-//		userDao.save(entity);
-		
-//		userDao.closeSession();
+		userDao.save(entity);
 		
 	}
 	
 	public void update(User entity){
 		
-		
+		userDao.update(entity);
 	}
 	
 	public User findById(Id id){
@@ -56,9 +51,14 @@ public class UserService {
 		
 	}
 	
+	public void delete(int id){
+		userDao.delete(id);
+	}
+	
 	public List<User> findAll(){
 		
-		return null;
+		List<User> list = userDao.findAll();
+		return list;
 	}
 	
 	public void deleteAll(){

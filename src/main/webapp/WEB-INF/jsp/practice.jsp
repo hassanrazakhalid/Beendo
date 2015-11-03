@@ -97,11 +97,7 @@ function AddSetting()
         	<td data-toggle="modal" data-target="#myModal" onclick="EditSetting(${obj.id}, '${obj.name}')" onMouseOver="this.style.cursor='pointer'">
         	  <a><span class="glyphicon glyphicon-pencil"></a>
         	</td>
-        	<%-- <td data-toggle="modal" data-target="#myModal">
-		      	<a href="<spring:url value="/practice/edit/${obj.id}"/>">
-		      		<span class="glyphicon glyphicon-pencil">
-		      	</a>
-      		</td> --%>
+        	
       		<td>
 		      	<a href="<spring:url value="/practice/delete/${obj.id}"/>">
 		      		<span class="glyphicon glyphicon-remove">
