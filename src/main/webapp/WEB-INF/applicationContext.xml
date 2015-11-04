@@ -65,6 +65,9 @@ connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-
 	<tx:annotation-driven transaction-manager="transactionManager" />
+	<import resource="security.xml" />
+
+
+
 </beans>

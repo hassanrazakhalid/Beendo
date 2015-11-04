@@ -29,7 +29,8 @@
 	
 	function updatePressed(id){
 		
-		var $row = $(this).closest("tr"),       // Finds the closest row <tr> 
+		var $row = $(this).closest("tr");       // Finds the closest row <tr>
+		console.log($row);
 	    $tds = $row.find("td");             // Finds all children <td> elements
 
 	$.each($tds, function() {               // Visits every single <td> element
