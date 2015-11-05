@@ -6,11 +6,12 @@
 		http://www.springframework.org/schema/security
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
-	<http>
+	<http use-expressions="true">
 		<csrf disabled="true" />
 		<intercept-url pattern="/users**" access="hasRole('ROLE_ADMIN')" />
-		<form-login />
-		<logout />
+		<intercept-url pattern="/users/**" access="hasRole('ROLE_ADMIN')" />
+		<form-login login-page='/login.html'/>
+		<logout logout-url="/logout.html" />
 	</http>
 
 	<authentication-manager>

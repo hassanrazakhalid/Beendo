@@ -67,6 +67,13 @@ public class LoginController {
 		return mv;
 	}
 	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public ModelAndView logoutPressed(){
+		
+		ModelAndView mv = new ModelAndView("login");
+		return mv;
+	}
+	
 	void getUsers(){
 		
 		String hql = "FROM User";
